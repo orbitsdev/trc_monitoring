@@ -16,6 +16,8 @@ class AppColor {
   static const Color greyFont = Color(0xff96A5BB) ;
 
 
+  static const Color fontColor1 = Color(0xff8193AE) ;
+  static const Color dotColor = Color(0xffCCD8E6) ;
 
 
 
