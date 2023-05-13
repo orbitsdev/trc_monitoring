@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:trcmapping/utils/themes/app_color.dart';
+import 'package:trcmapping/views/auth/login_screen.dart';
 import 'package:trcmapping/views/start/boarding_screen.dart';
 
 Future<void> main() async  {
@@ -38,7 +39,8 @@ class _MyAppState extends State<MyApp> {
       ),
       home: const BoardingScreen(),
       getPages: [
-        GetPage(name: '/boarding', page: ()=> const BoardingScreen())
+        GetPage(name: '/boarding', page: ()=> const BoardingScreen()),
+        GetPage(name: '/login', page: ()=> const LoginScreen() , transition:  Transition.cupertino),
       ],
     );
   }

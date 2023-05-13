@@ -3,10 +3,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:trcmapping/database/boarding_seeder.dart';
 import 'package:trcmapping/utils/themes/ap_constants.dart';
 import 'package:trcmapping/utils/themes/app_color.dart';
+import 'package:trcmapping/views/auth/login_screen.dart';
 import 'package:trcmapping/widgets/boarding_content_builder.dart';
 
 class BoardingScreen extends StatefulWidget {
@@ -31,7 +33,7 @@ class _BoardingScreenState extends State<BoardingScreen> {
         _pagecontroler.nextPage(duration: const Duration(milliseconds: 600), curve: Curves.easeIn);
       }else{
         // SharedPreferencesManager.setShowOnBoarding(true);
-        // Get.off(()=> const HomeScreen());
+        Get.off(()=> const LoginScreen());
       }
   }
   
@@ -57,7 +59,7 @@ class _BoardingScreenState extends State<BoardingScreen> {
       bottomSheet: Container(
         
         width:double.infinity,
-        padding: EdgeInsets.all(padding),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 34),
         constraints:  BoxConstraints(
           minHeight: MediaQuery.of(context).size.height * 0.10,
         ),
@@ -67,7 +69,7 @@ class _BoardingScreenState extends State<BoardingScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            if(!isLastIndex)TextButton(onPressed: skip, child: const Text('Skip', style: TextStyle(color:AppColor.fontColor1))).animate().fadeIn(),
+            if(!isLastIndex)TextButton(onPressed: skip, child: const Text('Skip', style: TextStyle(color:AppColor.fontColor1))).animate().fadeIn(duration: const Duration(milliseconds: 1300)),
             if(!isLastIndex)  SmoothPageIndicator(
                   onDotClicked: (index) => _pagecontroler.animateToPage(index, duration: const Duration(milliseconds: 600), curve: Curves.easeIn),
                 controller: _pagecontroler,
@@ -76,23 +78,22 @@ class _BoardingScreenState extends State<BoardingScreen> {
                   spacing: 12,
                   activeDotColor: AppColor.lightBlue,
                   dotColor : AppColor.dotColor,
-                
                   dotHeight: 10,
                   dotWidth: 10,
 
                 ),
-              ).animate().fadeIn(),
+              ).animate().fadeIn(duration: const Duration(milliseconds: 1300)),
           if(!isLastIndex) ElevatedButton(
                style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 24,),
                ),
-              onPressed: next, child:  Text( isLastIndex ? 'Continue'.toUpperCase() : 'Next').animate().fadeIn()),
+              onPressed: next, child:  Text( isLastIndex ? 'Continue'.toUpperCase() : 'Next').animate().fadeIn(duration: const Duration(milliseconds: 1300))),
           if(isLastIndex) Expanded(
             child: ElevatedButton(
                  style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 24,),
                  ),
-                onPressed: next, child: const  Text('Get Started')).animate().fadeIn(),
+                onPressed: next, child: const  Text('Get Started')).animate().fadeIn(duration: const Duration(milliseconds: 1300)),
           )
           ],
         ),
