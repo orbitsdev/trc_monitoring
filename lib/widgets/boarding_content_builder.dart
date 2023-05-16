@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:trcmapping/database/boarding_seeder.dart';
 import 'package:trcmapping/helpers/asset.dart';
+import 'package:trcmapping/models/boarding.dart';
 import 'package:trcmapping/utils/themes/ap_constants.dart';
 import 'package:trcmapping/utils/themes/app_color.dart';
 import 'package:trcmapping/widgets/v.dart';
